@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'pg'
+
+gem 'active_model_serializers', '~> 0.8.3'
 
 gem 'rails', '4.2.6'
 
