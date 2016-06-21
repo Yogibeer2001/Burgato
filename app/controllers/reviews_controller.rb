@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+
   before_action :set_review, only: [:show, :update, :destroy]
+  before_action :authenticate
+
 
   # GET /reviews
   # GET /reviews.json
@@ -56,4 +60,22 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:bun, :patty, :chips, :atmosphere, :comment, :value, :user_id, :burger_place_id)
     end
+
+    protected
+
+  def authenticate
+    authenticate_token || render_unauthorized
+  end
+
+  def authenticate_token
+    authenticate_with_http_token do |token, options|
+      User.find_by(auth_token: token)
+    end
+  end
+
+  def render_unauthorized
+    self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+    render json: 'Bad credentials', status: 401
+  end
+
 end
