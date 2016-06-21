@@ -11,7 +11,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 
 
-gem 'sqlite3'
+# gem 'sqlite3'
 
 
 gem 'rails-api'
