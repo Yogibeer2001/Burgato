@@ -1,5 +1,8 @@
 class BurgerPlacesController < ApplicationController
+  include ActionController::HttpAuthentication::Token::ControllerMethods
+  
   before_action :set_burger_place, only: [:show, :update, :destroy]
+  before_action :authenticate
 
   # GET /burger_places
   # GET /burger_places.json
@@ -56,4 +59,22 @@ class BurgerPlacesController < ApplicationController
     def burger_place_params
       params.require(:burger_place).permit(:name, :address, :phone_no, :review_score, :post_code, :suburb, :city, :web_address)
     end
+
+    protected
+
+  def authenticate
+    authenticate_token || render_unauthorized
+  end
+
+  def authenticate_token
+    authenticate_with_http_token do |token, options|
+      User.find_by(auth_token: token)
+    end
+  end
+
+  def render_unauthorized
+    self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+    render json: 'Bad credentials', status: 401
+  end
+
 end
