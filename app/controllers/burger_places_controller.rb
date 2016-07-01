@@ -1,6 +1,6 @@
 class BurgerPlacesController < ApplicationController
   include ActionController::HttpAuthentication::Token::ControllerMethods
-  
+
   before_action :set_burger_place, only: [:show, :update, :destroy]
   before_action :authenticate
 
