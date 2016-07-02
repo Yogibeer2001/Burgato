@@ -17,7 +17,6 @@ class BurgerPlacesController < ApplicationController
   def show
     render json: @burger_place
   end
-
   # POST /burger_places
   # POST /burger_places.json
   def create
