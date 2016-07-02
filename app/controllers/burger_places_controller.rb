@@ -20,7 +20,7 @@ class BurgerPlacesController < ApplicationController
   # POST /burger_places
   # POST /burger_places.json
   def create
-    @burger_place = BurgerPlace.new(JSON.parse())
+    @burger_place = BurgerPlace.new(burger_place_params)
     if @burger_place.save
       render json: @burger_place, status: :created, location: @burger_place
     else
@@ -55,7 +55,9 @@ class BurgerPlacesController < ApplicationController
     end
 
     def burger_place_params
-      params.require(:burger_place).permit(:name, :address, :phone_no, :review_score, :post_code, :suburb, :city, :web_address)
+      # params.require(:burger_place).permit(:name, :address, :phone_no, :review_score, :post_code, :suburb, :city, :web_address)
+      res = ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+      res
     end
 
     protected
