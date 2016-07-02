@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.find(params[:burger_place_id])
 
     render json: @reviews
   end
