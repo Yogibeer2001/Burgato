@@ -20,8 +20,7 @@ class BurgerPlacesController < ApplicationController
   # POST /burger_places
   # POST /burger_places.json
   def create
-    @burger_place = BurgerPlace.new(burger_place_params)
-
+    @burger_place = BurgerPlace.new(JSON.parse())
     if @burger_place.save
       render json: @burger_place, status: :created, location: @burger_place
     else
