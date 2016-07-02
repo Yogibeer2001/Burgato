@@ -1,7 +1,7 @@
 class BurgerPlacesController < ApplicationController
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  before_action :set_burger_place, only: [:create, :show, :update, :destroy]
+  before_action :set_burger_place, only: [:show, :update, :destroy]
   before_action :authenticate
 
   # GET /burger_places
@@ -21,6 +21,7 @@ class BurgerPlacesController < ApplicationController
   # POST /burger_places.json
   def create
     @burger_place = BurgerPlace.new(burger_place_params)
+
     if @burger_place.save
       render json: @burger_place, status: :created, location: @burger_place
     else
