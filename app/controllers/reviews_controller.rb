@@ -58,7 +58,9 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:bun, :patty, :chips, :atmosphere, :comment, :value, :user_id, :burger_place_id)
+      # params.require(:review).permit(:bun, :patty, :chips, :atmosphere, :comment, :value, :user_id, :burger_place_id)
+      res = ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+      res
     end
 
     protected
