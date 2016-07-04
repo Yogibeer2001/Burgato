@@ -5,23 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Review.all.each(&:destroy)
-BurgerPlace.all.each(&:destroy)
-User.all.each(&:destroy)
+# Review.all.each(&:destroy)
+# BurgerPlace.all.each(&:destroy)
+# User.all.each(&:destroy)
+#
+#
+#
+#
+# user1 = User.create(:email => 'ephrem2000@yahoo.com',
+#                     :password => '123456')
+# user2 = User.create(:email => 'yogi2000@gmail.com',
+#                     :password => '123456')
+# burger_places1 = BurgerPlace.create(name: '8 bit', address: 'Droop Street ',phone_no: '+45 4534 343', review_score: '4',
+# post_code: '3000', suburb: 'Footscray',city: 'Footscray', web_address: 'http://citybuger.com.au')
+# burger_places2 = BurgerPlace.create(name: 'Smith Burger', address: 'Smith street',phone_no: '+45 3424 343', review_score: '5',
+# post_code: '3015', suburb: 'Footscray',city: 'Marrybyrong', web_address: 'http://smithbuger.com.au')
 
 
-
-
-user1 = User.create(:email => 'ephrem2000@yahoo.com',
-                    :password => '123456')
-user2 = User.create(:email => 'yogi2000@gmail.com',
-                    :password => '123456')
-
-burger_places1 = BurgerPlace.create(name: 'Collins Burger', address: 'Collin street',phone_no: '+45 4534 343', review_score: '4',
-post_code: '3000', suburb: 'Melbourne',city: 'Melbourne', web_address: 'http://citybuger.com.au')
-burger_places2 = BurgerPlace.create(name: 'Smith Burger', address: 'Smith street',phone_no: '+45 3424 343', review_score: '5',
-post_code: '3015', suburb: 'Footscray',city: 'Marrybyrong', web_address: 'http://smithbuger.com.au')
-
-
-burger_places1.reviews.create(bun: "3",patty: "3",chips: "3",atmosphere: "3",comment: "it is a good place",value: "3", user: user1)
-burger_places2.reviews.create(bun: "4",patty: "3",chips: "5",atmosphere: "3",comment: "it is very good place",value: "3", user: user1)
+reviews.create(bun: "2",patty: "5",chips: "2",atmosphere: "4",comment: "Will I come again? probably ",value: "3", user_id: "2",burger_place_id: "1")
+reviews.create(bun: "4",patty: "5",chips: "5",atmosphere: "5",comment: "One of the best burger that I ever ate recently",value: "3", user_id: "1",burger_place_id:"2")
