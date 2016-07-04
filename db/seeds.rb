@@ -22,5 +22,19 @@
 # post_code: '3015', suburb: 'Footscray',city: 'Marrybyrong', web_address: 'http://smithbuger.com.au')
 
 
-reviews.create(bun: "2",patty: "5",chips: "2",atmosphere: "4",comment: "Will I come again? probably ",value: "3", user_id: "2",burger_place_id: "1")
-reviews.create(bun: "4",patty: "5",chips: "5",atmosphere: "5",comment: "One of the best burger that I ever ate recently",value: "3", user_id: "1",burger_place_id:"2")
+Review.create(bun: "2",
+               patty: "5",
+               chips: "2",
+               atmosphere: "4",
+               comment: "Will I come again? probably ",
+               value: "3",
+               user_id: "2",
+               burger_place_id: "1")
+Review.create(bun: "4",
+               patty: "5",
+               chips: "5",
+               atmosphere: "5",
+               comment: "One of the best burger that I ever ate recently",
+               value: "3",
+               user_id: "1",
+               burger_place_id:"2")
